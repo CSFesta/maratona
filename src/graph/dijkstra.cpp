@@ -9,20 +9,23 @@ using namespace std;
 // weighted edge
 typedef pair<u32, u32> wedge;
 
-vector<u32> dijkstra(vector<vector<wedge>> &graph) {
+vector<u32> dijkstra(const vector<vector<wedge>> &graph, const u32 start, const u32 dest) {
     const auto min_cmp = [](const wedge& a, const wedge& b) {
         return a.second > b.second;
     };
     priority_queue<wedge, vector<wedge>, decltype(min_cmp)> pq{min_cmp};
     vector<bool> visited(graph.size());
     vector<u32> min_dist(graph.size(), U32MAX);
-    min_dist[0] = 0;
-    pq.emplace(0, 0);
+    min_dist[start] = 0;
+    pq.emplace(start, 0);
     while (!pq.empty()) {
         wedge cur = pq.top();
         pq.pop();
         if (visited[cur.first]) {
             continue;
+        }
+        if (cur.first == dest) {
+            return min_dist;
         }
         visited[cur.first] = true;
 
@@ -39,4 +42,16 @@ vector<u32> dijkstra(vector<vector<wedge>> &graph) {
         }
     }
     return min_dist;
+}
+
+vector<u32> dijkstra(const vector<vector<wedge>> &graph, const u32 start) {
+    return dijkstra(graph, start, graph.size());
+}
+
+vector<u32> dijkstra(const vector<vector<wedge>> &graph) {
+    return dijkstra(graph, 0);
+}
+
+u32 dijkstraSingleDest(const vector<vector<wedge>> &graph, const u32 start, const u32 dest) {
+    return dijkstra(graph, start, dest)[dest];
 }
