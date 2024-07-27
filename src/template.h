@@ -26,11 +26,3 @@ typedef long double f80;
 #define U64MAX UINT64_MAX
 
 using namespace std;
-
-int main(void) {
-    std::cin.sync_with_stdio(false);
-    std::cin.tie(0);
-
-    
-    return 0;
-}
