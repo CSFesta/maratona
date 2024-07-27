@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "../../src/graph/prim.cpp"
 
-TEST(PrimTestCodeAtNight2024_2, Graph) {
+TEST(PrimTest, CodeAtNight2024_2) {
     vector<vector<wedge>> graph(4);
     graph[0].emplace_back(1, 10);
     graph[0].emplace_back(2, 40);
@@ -14,7 +14,7 @@ TEST(PrimTestCodeAtNight2024_2, Graph) {
     EXPECT_EQ(prim(graph), 60);
 }
 
-TEST(PrimTestMadeUp1, Graph) {
+TEST(PrimTest, MadeUp1) {
     vector<vector<wedge>> graph(5);
     graph[0].emplace_back(3, 1);
     graph[3].emplace_back(0, 1);

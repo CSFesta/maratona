@@ -1,7 +1,7 @@
 #include "../../src/graph/dijkstra.cpp"
 #include <gtest/gtest.h>
 
-TEST(DijkstraPGB, Graph) {
+TEST(DijkstraTest, PGB) {
     vector<u32> expected = {0, U32MAX, 1, 6, 2, 2, 13, 14, 15, 17};
     vector<vector<wedge>> graph(10);
     graph[0].emplace_back(2, 1);

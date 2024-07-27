@@ -1,7 +1,7 @@
 #include "../../src/dsa/heap.cpp"
 #include <gtest/gtest.h>
 
-TEST(HeapSort, Dsa) {
+TEST(HeapTest, HeapSort) {
     std::vector<int> test = {5, 21, 456, 12, 34, 1, 8, 9, 12, 4, 2, 65, 4, 5};
     std::vector<int> expected = {1, 2,  4,  4,  5,  5,  8,
                                  9, 12, 12, 21, 34, 65, 456};
@@ -21,7 +21,7 @@ TEST(HeapSort, Dsa) {
     }
 }
 
-TEST(HeapSortRegression, Dsa) {
+TEST(HeapTest, HeapSortRegression) {
     std::vector<int> test = {5, 2, 6};
     std::vector<int> expected = {2, 5, 6};
 
@@ -40,7 +40,7 @@ TEST(HeapSortRegression, Dsa) {
     }
 }
 
-TEST(HeapPushPop, Dsa) {
+TEST(HeapTest, PushPop) {
     std::vector<int> test;
 
     push_heap(test, 4);
@@ -73,10 +73,24 @@ TEST(HeapPushPop, Dsa) {
     push_heap(test, 0);
 
     EXPECT_TRUE(std::is_heap(test.begin(), test.end()));
-
-    sort(test);
-
-    EXPECT_TRUE(std::is_sorted(test.begin(), test.end()));
-    
+    EXPECT_EQ(6, pop_heap(test));
+    EXPECT_TRUE(std::is_heap(test.begin(), test.end()));
+    EXPECT_EQ(5, pop_heap(test));
+    EXPECT_TRUE(std::is_heap(test.begin(), test.end()));
+    EXPECT_EQ(4, pop_heap(test));
+    EXPECT_TRUE(std::is_heap(test.begin(), test.end()));
+    EXPECT_EQ(3, pop_heap(test));
+    EXPECT_TRUE(std::is_heap(test.begin(), test.end()));
+    EXPECT_EQ(2, pop_heap(test));
+    EXPECT_TRUE(std::is_heap(test.begin(), test.end()));
+    EXPECT_EQ(1, pop_heap(test));
+    EXPECT_TRUE(std::is_heap(test.begin(), test.end()));
     EXPECT_EQ(0, pop_heap(test));
+    EXPECT_TRUE(std::is_heap(test.begin(), test.end()));
+    EXPECT_EQ(0, pop_heap(test));
+    EXPECT_TRUE(std::is_heap(test.begin(), test.end()));
+    EXPECT_EQ(0, pop_heap(test));
+    EXPECT_TRUE(std::is_heap(test.begin(), test.end()));
+    EXPECT_EQ(0, pop_heap(test));
+    EXPECT_TRUE(test.empty());
 }
