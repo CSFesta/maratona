@@ -50,7 +50,7 @@ vector<u32> dfsNoRecursion(const vector<vector<u32>> &graph, u32 start) {
     return result;
 }
 
-vector<u32> tarjan(vector<vector<u32>> &graph) {
+vector<u32> tarjan(const vector<vector<u32>> &graph) {
     vector<u32> result(graph.size(), 0);
     vector<u32> lowest(graph.size(), 0);
     u32 i;

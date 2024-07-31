@@ -1,34 +1,19 @@
-#include <gtest/gtest.h>
 #include "../../src/graph/prim.cpp"
+#include <gtest/gtest.h>
 
 TEST(PrimTest, CodeAtNight2024_2) {
-    vector<vector<wedge>> graph(4);
-    graph[0].emplace_back(1, 10);
-    graph[0].emplace_back(2, 40);
-    graph[1].emplace_back(0, 10);
-    graph[1].emplace_back(3, 30);
-    graph[2].emplace_back(0, 40);
-    graph[2].emplace_back(3, 20);
-    graph[3].emplace_back(1, 30);
-    graph[3].emplace_back(2, 20);
+    const vector<vector<wedge>> graph = {{{1, 10}, {2, 40}},
+                                         {{0, 10}, {3, 30}},
+                                         {{0, 40}, {3, 20}},
+                                         {{1, 30}, {2, 20}}};
     EXPECT_EQ(prim(graph), 60);
 }
 
 TEST(PrimTest, MadeUp1) {
-    vector<vector<wedge>> graph(5);
-    graph[0].emplace_back(3, 1);
-    graph[3].emplace_back(0, 1);
-    graph[3].emplace_back(1, 2);
-    graph[1].emplace_back(3, 2);
-    graph[1].emplace_back(4, 3);
-    graph[4].emplace_back(1, 3);
-    graph[4].emplace_back(2, 4);
-    graph[2].emplace_back(4, 4);
-    graph[1].emplace_back(2, 7);
-    graph[2].emplace_back(1, 7);
-    graph[1].emplace_back(0, 8);
-    graph[0].emplace_back(1, 8);
-    graph[3].emplace_back(4, 10);
-    graph[4].emplace_back(3, 10);
+    const vector<vector<wedge>> graph = {
+        {{3, 1}, {1, 8}},          {{3, 2}, {4, 3}, {0, 8}, {2, 7}},
+        {{4, 4}, {1, 7}},          {{0, 1}, {1, 2}, {4, 10}},
+        {{1, 3}, {2, 4}, {3, 10}},
+    };
     EXPECT_EQ(prim(graph), 10);
 }

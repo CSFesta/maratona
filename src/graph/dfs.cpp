@@ -47,7 +47,7 @@ vector<u32> dfs(const vector<vector<u32>> &graph, const u32 start) {
     return result;
 }
 
-vector<u32> dfs(vector<vector<u32>> &graph) {
+vector<u32> dfs(const vector<vector<u32>> &graph) {
     vector<u32> result(graph.size(), 0);
     u32 i;
     for (u32 j = 0; j < result.size(); ++j) {
@@ -56,11 +56,11 @@ vector<u32> dfs(vector<vector<u32>> &graph) {
     return result;
 }
 
-bool isReachable(vector<vector<u32>> &graph, u32 start, u32 end) {
+bool isReachable(const vector<vector<u32>> &graph, u32 start, u32 end) {
     return dfs(graph, start)[end] != 0;
 }
 
-bool isConnected(vector<vector<u32>> &graph) {
+bool isConnected(const vector<vector<u32>> &graph) {
     vector<u32> result = dfs(graph, 0);
     return find(result.begin(), result.end(), 0u) == result.end();
 }

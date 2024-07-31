@@ -9,7 +9,7 @@ using namespace std;
 // weighted edge
 typedef pair<u32, u32> wedge;
 
-u32 prim(vector<vector<wedge>> &graph) {
+u32 prim(const vector<vector<wedge>> &graph) {
     const auto min_cmp = [](const wedge& a, const wedge& b) {
         return a.second > b.second;
     };
