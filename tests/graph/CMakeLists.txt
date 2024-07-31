@@ -13,3 +13,11 @@ gtest_discover_tests(dfs PROPERTIES TIMEOUT 600)
 add_executable(scc scc.cpp)
 target_link_libraries(scc GTest::gtest_main Scc)
 gtest_discover_tests(scc PROPERTIES TIMEOUT 600)
+
+add_executable(bfs bfs.cpp)
+target_link_libraries(bfs GTest::gtest_main Bfs)
+gtest_discover_tests(bfs PROPERTIES TIMEOUT 600)
+
+add_executable(cycle cycle.cpp)
+target_link_libraries(cycle GTest::gtest_main Cycle)
+gtest_discover_tests(cycle PROPERTIES TIMEOUT 600)
