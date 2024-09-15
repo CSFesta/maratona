@@ -53,7 +53,7 @@ vector<u32> dfsNoRecursion(const vector<vector<u32>> &graph, u32 start) {
 vector<u32> tarjan(const vector<vector<u32>> &graph) {
     vector<u32> result(graph.size(), 0);
     vector<u32> lowest(graph.size(), 0);
-    u32 i;
+    u32 i = 0;
     stack<u32> tarjan_stack;
     vector<bool> on_stack(graph.size());
     for (u32 j = 0; j < result.size(); ++j) {

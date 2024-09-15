@@ -49,7 +49,7 @@ vector<u32> dfs(const vector<vector<u32>> &graph, const u32 start) {
 
 vector<u32> dfs(const vector<vector<u32>> &graph) {
     vector<u32> result(graph.size(), 0);
-    u32 i;
+    u32 i = 0;
     for (u32 j = 0; j < result.size(); ++j) {
         dfs(graph, j, result, i);
     }
